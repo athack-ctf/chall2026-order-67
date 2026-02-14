@@ -1,6 +1,6 @@
-# Chall - Your Challenge Title
+# Chall - Order 67
 
-> A brief description of the challenge
+> Kill all the child processes and get the flag. Temple of Jedi continuously respawn childs ... PID_LIMIT is the key.
 
 ## Challenge Type
 
@@ -9,74 +9,19 @@
 
 ## Design Type
 
-- [X] **Black**-Box
-- [ ] **White**-Box
+- [ ] **Black**-Box
+- [X] **White**-Box
 
 ## Designer(s)
 
-- Ada Lovelace
-- Barbara Liskov
+- Hugo Kermabon--Bobinnec
 
 ## Description
 
-A high-level overview intended to clarify the concept and intuition behind the challenge, outlining its educational
-goals and the skills it aims to test in participants.
+Participants must check the source code and see that they get the flag once all child processes are dead.
+There is a limit on the number of PID the program can fork (subtely hidden as "save cost for infra"). Participants must spawn a lot of processes to prevent the server from respawning childrens.
 
-**IMPORTANT:** This description will **NOT** be shared with participants.
 
 ## Category(ies)
 
-- `pwn`
-- `re`
-- `web`
-- `stegano`
-- `env`
-- `crypto`
-- `osint`
-- `web3`
-- `ai`
-- `android`
-- `auto`
 - `misc`
-
----
-
-# Project Structure
-
-## 1. HACKME.md
-
-- **[HACKME.md](HACKME.md)**: A teaser or description of the challenge to be shared with participants (in CTFd).
-
-## 2. Source Code
-
-- **[source/README.md](source/README.md)**: Comprehensive instructions on how to have a running instance of your
-  challenge from the source.
-  If your project includes multiple subprojects, please consult us (Alin and William).
-- **[source/*](source/)**: Your source code.
-
-## 3. Offline Artifacts [OPTIONAL]
-
-> **NOTE:** This directory is optional for online challenges. However, if offline artifacts need to be provided as well, 
-> they should be placed here.
-
-- **[offline-artifacts/*](offline-artifacts/)**: All files intended to be downloaded by participants
-  (e.g., a flagless version of the running binary executable of a pwn challenge).
-  For large files (exceeding 100 MB), please consult us (Alin and William).
-
-## 4. Solution
-
-- **[solution/README.md](solution/README.md)**: A detailed writeup of the working solution.
-- **[solution/FLAGS.md](solution/FLAGS.md)**: A single markdown file listing all (up-to-date) flags.
-- **[solution/*](solution/)**: Any additional files or code necessary for constructing a reproducible solution for the
-  challenge (e.g., `PoC.py`, `requirement.txt`, etc.).
-
-## 5. Dockerization
-
-> **NOTE:** For deployment on @Hack's infrastructure, online challenges must be containerized.
-> However, this requirement does not apply during the early stages of challenge development, so do not hesitate to start
-> building your online challenge if you are unfamiliar with containerization.
-> We (Anis and Hugo) will take care of it.
-
-- **[source/Dockerfile](source/Dockerfile)**: Needed for building a containerized image of the online challenge.
-- **[source/docker-compose.yml](source/docker-compose.yml)**: Needed for a configuration-free run of the online
-  challenge

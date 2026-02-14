@@ -1,33 +1,29 @@
-#########################################################################################################################
-# TODO: REPLACE THE CONTENT OF THIS FILE WITH YOUR OWN.
-#########################################################################################################################
+FROM ubuntu:24.04
 
-# Use the official Python base image
-FROM python:3.10-slim
+# Avoid interactive installs
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Set the working directory
+# Install only what we need
+RUN apt-get update && apt-get install -y \
+    gcc socat   \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /chall
 
-# Installing Flask
-RUN pip install Flask
+RUN useradd -m cin-drallig
 
-# Create the example chall (chall.py)
-RUN echo "from flask import Flask\n\
-chall = Flask(__name__)\n\
-\n\
-@chall.route('/')\n\
-def hello():\n\
-    return 'Hello @Hack 2026!'\n\
-\n\
-if __name__ == '__main__':\n\
-    chall.run(host='0.0.0.0')" > chall.py
 
-# Set environment vars
-ENV FLASK_APP=chall.py
-ENV FLASK_RUN_PORT=2026
+# Copy challenge
+COPY jedi-temple.c .
+COPY flag.txt .
+COPY run.sh .
 
-# Expose the port that the chall will run on
-EXPOSE 2026
 
-# Run the chall
-CMD ["flask", "run", "--host=0.0.0.0"]
+# Build challenge
+RUN gcc jedi-temple.c -o jedi-temple
+RUN chmod +x ./run.sh
+RUN chmod 755 ./jedi-temple
+
+EXPOSE 1337
+
+CMD ["socat", "TCP-LISTEN:1337,reuseaddr,fork", "EXEC:./run.sh"]
