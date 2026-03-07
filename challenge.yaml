@@ -12,8 +12,9 @@ category: "MISC"
 # DO NOT remove the vertical character "|" (aka pipe character)
 description: |
   - Hello there.
+
   - General Kenobi...
-  
+
   [Start your challenge instance](https://instancer.athackctf.com/chall2026-order-67/create)
 
 # The field connection_info is used to provide a link, hostname, or instructions on how to connect to a challenge
