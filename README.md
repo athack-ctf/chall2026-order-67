@@ -1,27 +1,82 @@
-# Chall - Order 67
+# @Hack 2026: Order 67
 
-> Kill all the child processes and get the flag. Temple of Jedi continuously respawn childs ... PID_LIMIT is the key.
+> Authored by [Hugo](https://github.com/hkerma).
 
-## Challenge Type
+- **Category**: `Misc`
+- **Solves**: `49/120`
+- **Tags**: `sponsored`
+- **Protocol**: `tcp`
 
-- [ ] **OFF**line
-- [X] **ON**line
+> - Hello there.
+>
+> - General Kenobi...
+>
 
-## Design Type
+## Files
 
-- [ ] **Black**-Box
-- [X] **White**-Box
+- **[Download: jedi-temple.c](https://github.com/athack-ctf/chall2026-order-67/raw/refs/heads/main/offline-artifacts/jedi-temple.c)**
 
-## Designer(s)
+## Access a dockerized instance
 
-- Hugo Kermabon--Bobinnec
+Run challenge container using docker compose
 
-## Description
+```
+docker compose up -d
+```
 
-Participants must check the source code and see that they get the flag once all child processes are dead.
-There is a limit on the number of PID the program can fork (subtely hidden as "save cost for infra"). Participants must spawn a lot of processes to prevent the server from respawning childrens.
+Connect using netcat
+
+```
+nc localhost 53017
+```
+
+<details>
+<summary>
+How to stop/restart challenge?
+</summary>
+
+To stop the challenge run
+
+```
+docker compose stop
+```
+
+To restart the challenge run
+
+```
+docker compose restart
+```
+
+</details>
+
+## Reveal Flag(s)
+
+Did you try solving this challenge?
+<details>
+<summary>
+Yes
+</summary>
+
+Did you **REALLY** try solving this challenge?
+
+<details>
+<summary>
+Yes, I promise!
+</summary>
+
+- Flag 1: `ATHACKCTF{MarchTheSeventhBeWithYou}`
+
+</details>
+</details>
 
 
-## Category(ies)
+---
 
-- `misc`
+## About @Hack
+
+[@Hack](https://athackctf.com/) is an annual CTF (Capture The Flag) competition hosted
+by [HEXPLOIT ALLIANCE](https://hexploit-alliance.com/) and [TECHNATION](https://technationcanada.ca/) at Concordia
+University in Montreal, Canada.
+
+---
+[Check more challenges from @Hack 2026](https://github.com/athack-ctf/AtHackCTF-2026-Challenges).
